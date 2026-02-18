@@ -1,0 +1,13 @@
+#main-title {
+    font-family: var(--f-elegante); /* Dancing Script */
+    color: var(--color-acento);     /* El rojo/naranja */
+    font-size: 4rem;
+    margin-top: 50px;
+}
+
+#status {
+    font-family: var(--f-codigo);   /* JetBrains Mono */
+    border: 1px solid #444;
+    padding: 15px;
+    background-color: #252525;
+}
