@@ -1,13 +1,45 @@
+/* assets/css/styles.css */
+@import url("variables.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #main-title {
-    font-family: var(--f-elegante); /* Dancing Script */
-    color: var(--color-acento);     /* El rojo/naranja */
-    font-size: 4rem;
-    margin-top: 50px;
+  font-family: var(--f-elegante); /* Dancing Script */
+  color: var(--color-acento); /* El rojo/naranja */
+  font-size: 4rem;
+  margin-top: 50px;
 }
 
 #status {
-    font-family: var(--f-codigo);   /* JetBrains Mono */
-    border: 1px solid #444;
-    padding: 15px;
-    background-color: #252525;
+  font-family: var(--f-codigo); /* JetBrains Mono */
+  border: 1px solid #444;
+  padding: 15px;
+  background-color: #252525;
+}
+body {
+  background-color: var(--bg-principal);
+  color: var(--texto-principal);
+  font-family: var(--fuente-cuerpo);
+  display: flex;
+  height: 100vh; /* Ocupa toda la pantalla **/
+  overflow: hidden;
+}
+aside {
+    width: 300px;
+    background-color: var(--bg-lateral);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #333;
+}
+main {
+    flex-grow: 1; /* El contenido ocupa el resto del espacio **/
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

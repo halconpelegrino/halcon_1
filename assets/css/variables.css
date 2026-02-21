@@ -1,44 +1,57 @@
 /* 1. REGISTRO DE FUENTES (Lo primero siempre) */
 @font-face {
-    font-family: 'JetBrains';
-    src: url('../fonts/jetBrainsMono/JetBrainsMono-Medium.ttf') format('truetype');
-    font-weight: 500;
+  font-family: "JetBrains";
+  src: url("../fonts/jetBrainsMono/JetBrainsMono-Medium.ttf") format("truetype");
+  font-weight: 500;
 }
 
 @font-face {
-    font-family: 'Dancing';
-    src: url('../fonts/dancingScript/DancingScript-VariableFont_wght.ttf') format('truetype');
+  font-family: "Dancing";
+  src: url("../fonts/dancingScript/DancingScript-VariableFont_wght.ttf")
+    format("truetype");
 }
 
 @font-face {
-    font-family: 'Raleway';
-    src: url('../fonts/raleway/Raleway-SemiBoldItalic.ttf') format('truetype');
-    font-weight: 600;
+  font-family: "Raleway";
+  src: url("../fonts/raleway/Raleway-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
 }
 
 /* 2. VARIABLES GLOBALES (Un solo bloque :root) */
 :root {
-    /* Tipografías (Tus acortadores) */
-    --f-codigo: 'JetBrains', monospace;
-    --f-elegante: 'Dancing', cursive;
-    --f-base: 'Raleway', sans-serif;
+  /* Tipografías (Tus acortadores) */
+  --f-codigo: "JetBrains", monospace;
+  --f-elegante: "Dancing", cursive;
+  --f-base: "Raleway", sans-serif;
 
-    /* Paleta de Colores Principal */
-    --color-fondo: #1e1e1e;       /* Oscuro para descansar la vista */
-    --color-texto: #f8f9fa;       /* Claro para contraste */
-    --color-acento: #e74c3c;      /* El rojo que ya tenías */
-    --color-principal: #00d1b2;   /* Un turquesa para destacar */
+  /* Paleta de Colores Principal */
+  --color-fondo: #1e1e1e; /* Oscuro para descansar la vista */
+  --color-texto: #f8f9fa; /* Claro para contraste */
+  --color-acento: #e74c3c; /* El rojo que ya tenías */
+  --color-principal: #00d1b2; /* Un turquesa para destacar */
 
-    /* Medidas y Espaciados */
-    --espacio-malla: 16px;
-    --borde-redondeado: 8px;
+  /* Medidas y Espaciados */
+  --espacio-malla: 16px;
+  --borde-redondeado: 8px;
 }
+/* assets/css/variables.css */
+:root {
+  /* Paleta de colores - Estilo Dark Moderno */
+  --bg-principal: #121212; /* Negro casi puro */
+  --bg-lateral: #1e1e1e; /* Gris oscuro para el aside */
+  --acento-halcon: #e67e22; /* Naranja vibrante (como el pico de un halcón) */
+  --texto-principal: #ffffff; /* Blanco */
+  --texto-secundario: #b3b3b3; /* Gris claro para detalles */
 
+  /* Fuentes */
+  --fuente-titulos: "Raleway", sans-serif;
+  --fuente-cuerpo: "JetBrains Mono", monospace;
+}
 /* 3. ESTILOS BASE (Se aplican a todo el documento) */
 body {
-    background-color: var(--color-fondo);
-    font-family: var(--f-base);
-    color: var(--color-texto);
-    margin: 0;
-    padding: var(--espacio-malla);
+  background-color: var(--color-fondo);
+  font-family: var(--f-base);
+  color: var(--color-texto);
+  margin: 0;
+  padding: var(--espacio-malla);
 }
