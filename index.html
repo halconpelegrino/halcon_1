@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
-   
-
     <div class="layout-global">
       <aside class="sidebar-reproductor">
         <h2 class="f-elegante">Mi Música</h2>
@@ -24,26 +22,33 @@
           <button class="btn-audio" id="btn-prev">
             <img src="assets/icons/skip-backward-btn.svg" alt="Prev" />
           </button>
-           <button class="btn-audio" id="btn-play">
+          <button class="btn-audio" id="btn-play">
             <img src="assets/icons/play-fill.svg" alt="Play" />
           </button>
-           <button class="btn-audio" id="btn-next">
+          <button class="btn-audio" id="btn-next">
             <img src="assets/icons/skip-forward.svg" alt="Next" />
           </button>
         </div>
       </aside>
-      
+
       <main id="app">
-         <header>
-      <h1 id="main-title">Proyecto Halcón</h1>
-      <p>Entorno de aprendizaje configurado correctamente.</p>
-    </header>
-          <section id="status">
-              <p>
-                  Estado del sistema: <span id="js-check">Esperando JavaScript...</span>
-                </p>
-            </section>
-        </main>
+        <header>
+          <h1 id="main-title">Proyecto Halcón</h1>
+          <p>Entorno de aprendizaje configurado correctamente.</p>
+        </header>
+        <section id="status">
+          <p>
+            Estado del sistema:
+            <span id="js-check">Esperando JavaScript...</span>
+          </p>
+        </section>
+        <div class="animacion-contenedor">
+          <video autoplay loop playsinline class="video-central">
+            <source src="assets/media/38s-Happy Tree Friends.mp4-.mp4" type="video/mp4"/>
+            Tu navegador no soporta videos .
+          </video>
+        </div>
+      </main>
     </div>
 
     <script src="assets/js/config.js"></script>

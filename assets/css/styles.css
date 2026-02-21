@@ -24,22 +24,88 @@ body {
   background-color: var(--bg-principal);
   color: var(--texto-principal);
   font-family: var(--fuente-cuerpo);
-  display: flex;
-  height: 100vh; /* Ocupa toda la pantalla **/
+  margin: 0;
   overflow: hidden;
 }
 aside {
-    width: 300px;
-    background-color: var(--bg-lateral);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    border-right: 1px solid #333;
+  width: 350px; /** Un poco más ancho para que luzca la imagen  */
+  background-image: url("../img/aroma_terapia.jpg"); /** Usando imagen guardada */
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #333;
+  border-left: 2px solid var(--acento-halcon); /* Borde izquierdo **/
+  position: relative;
+  overflow: auto; /* Por si la lista de canciones es larga **/
 }
 main {
-    flex-grow: 1; /* El contenido ocupa el resto del espacio **/
-    padding: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  flex-grow: 1; /* El contenido ocupa el resto del espacio **/
+  display: flex;
+  flex-direction: column; /** Para que el título esté arriba y el video abajo */
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  text-align: center;
 }
+#main-title {
+  margin-top: 0; /* Pegamos el título al techo y el video **/
+  margin-bottom: auto; /** !La magia Empuja todo lo que tiene debajo hacia el centro/debajo */
+}
+
+/* Ajuste del ontenedor Principal **/
+
+.layout-global {
+  display: flex;
+  flex-direction: row-reverse; /** El aside pasa a la derecha, main a la izquierda */
+  height: 100vh;
+  width: 100vw;
+}
+.video-central {
+  width: 100%;
+  max-width: 500px;
+  /*Tamañoidealparaqueluzcasinpixelarse**/
+   border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  box-shadow: 0 0 20px var(--color-acento);
+}
+.animacion-contenedor {
+  margin-top: auto; /** Equilibra el espacio para que el video quede centrado */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.animacion-3d {
+  width: 150px;
+  height: 150px;
+  margin: 20px auto;
+  perspective: 1000px;
+}
+
+.objeto-3d {
+  width: 100%;
+  height: 100%;
+  background: var(--acento-halcon);
+  clip-path: polygon(
+    50% 0%,
+    100% 50%,
+    50% 100%,
+    0% 50%
+  ); /* Forma de diamante */
+  animation: girar3D 5s infinite linear;
+}
+
+@keyframes girar3D {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
