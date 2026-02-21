@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entorno Halcón | Aprendizaje</title>
+
+    <link rel="stylesheet" href="assets/css/variables.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+   
+
+    <div class="layout-global">
+      <aside class="sidebar-reproductor">
+        <h2 class="f-elegante">Mi Música</h2>
+        <p id="pista-nombre">Seleciona una pista</p>
+
+        <audio src="" id="pistas-control"></audio>
+
+        <input type="range" name="" id="progreso" />
+
+        <div class="controles">
+          <button class="btn-audio" id="btn-prev">
+            <img src="assets/icons/skip-backward-btn.svg" alt="Prev" />
+          </button>
+           <button class="btn-audio" id="btn-play">
+            <img src="assets/icons/play-fill.svg" alt="Play" />
+          </button>
+           <button class="btn-audio" id="btn-next">
+            <img src="assets/icons/skip-forward.svg" alt="Next" />
+          </button>
+        </div>
+      </aside>
+      
+      <main id="app">
+         <header>
+      <h1 id="main-title">Proyecto Halcón</h1>
+      <p>Entorno de aprendizaje configurado correctamente.</p>
+    </header>
+          <section id="status">
+              <p>
+                  Estado del sistema: <span id="js-check">Esperando JavaScript...</span>
+                </p>
+            </section>
+        </main>
+    </div>
+
+    <script src="assets/js/config.js"></script>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
