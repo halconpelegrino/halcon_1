@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnPrev = document.getElementById('btn-prev');
     const pistaNombre = document.getElementById('pista-nombre');
     const progreso = document.getElementById('progreso');
+    const contenedorLista = document.getElementById('lista-nombre');
 
     let indiceActual = 0;
 
@@ -83,4 +84,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 6. INICIO ---
     cargarCancion(indiceActual);
+
+    // ---- 7. Inyección Dinámica de PlayList ---
+    playlist.forEach((cancion, indice) => {
+        // 1. Creamos el elemanto
+        const item = document.createElement('button');
+
+        // 2. Le damos estilo (crear esta clesse en css luego)
+        item.classList.add('pista-item');
+        // 3. Escribimos el nombre de la canción
+        item.textContent = `${cancion.titulo}`;
+        //---Nuevo: Escuchador de clics ----
+        item.addEventListener('click', () => {
+            indiceActual = indice; // Sincronizamos el  indice 
+            cargarCancion(indiceActual);
+            audio.play();
+            playIcon.src = CONFIG.ROOT_ICONS + 'pause.svg';
+        });
+        // 4. Lo inyectamos en el Dom 
+        contenedorLista.appendChild(item);
+        
+    });
+
+
 });

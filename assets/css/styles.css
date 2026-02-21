@@ -62,11 +62,41 @@ main {
   height: 100vh;
   width: 100vw;
 }
+.pista-item {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  /**Untoquedetrasparencia*/border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  font-family: var(--f-codigo);
+  /**jetBrainsMonoparaesetoquetécnico*/
+   transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}
+.pista-item:hover {
+  background: var(--color-acento);
+  transform: translateX(-5px);  /* Un pequeño dezplasamiento a la izquierda  **/
+  -webkit-transform: translateX(-5px);
+  -moz-transform: translateX(-5px);
+  -ms-transform: translateX(-5px);
+  -o-transform: translateX(-5px);
+}
 .video-central {
   width: 100%;
   max-width: 500px;
   /*Tamañoidealparaqueluzcasinpixelarse**/
-   border-radius: 20px;
+  border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
@@ -108,4 +138,3 @@ main {
     transform: rotateY(360deg);
   }
 }
-
