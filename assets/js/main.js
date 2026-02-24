@@ -1,4 +1,3 @@
-
 /** Añadir lógica */
 document.addEventListener('DOMContentLoaded', () => {
     // --- 1. ELEMENTOS DEL DOM ---
@@ -11,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const pistaNombre = document.getElementById('pista-nombre');
     const progreso = document.getElementById('progreso');
     const contenedorLista = document.getElementById('lista-nombre');
-
+   
     let indiceActual = 0;
 
     // --- 2. VERIFICACIÓN DE CONFIGURACIÓN ---
@@ -22,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.error("❌ Error: No se encontró CONFIG o Playlist.");
         if(statusElement) statusElement.innerText = "Error de carga";
-        return; // Detenemos la ejecución
+        return; 
     }
 
     // --- 3. FUNCIONES LÓGICAS ---
@@ -30,10 +29,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const cancion = playlist[indice];
         audio.src = CONFIG.ROOT_AUDIO + cancion.archivo;
         pistaNombre.textContent = `${cancion.titulo} - ${cancion.artista}`;
+        actualizarInterfazLista(indice);
+    }
+
+    function actualizarInterfazLista(indice) {
+        const anterior = document.querySelector('.pista-activa');
+        if(anterior) anterior.classList.remove('pista-activa');
+
+        const botonActual = document.querySelector(`[data-indice="${indice}"]`);
+        if(botonActual)  {
+            botonActual.classList.add('pista-activa');
+            botonActual.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest'
+            });
+        }
     }
 
     // --- 4. EVENTOS DE CONTROL ---
-
     playBtn.addEventListener('click', () => {
         if (audio.paused) {
             audio.play();
@@ -52,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     btnPrev.addEventListener('click', () => {
-        // Lógica circular para no tener números negativos
         indiceActual = (indiceActual - 1 + playlist.length) % playlist.length;
         cargarCancion(indiceActual);
         audio.play();
@@ -60,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- 5. BARRA DE PROGRESO ---
-
     audio.addEventListener('timeupdate', () => { 
         if (audio.duration) {
             const porcentaje = (audio.currentTime / audio.duration) * 100;
@@ -68,43 +79,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ---- 5.5 AUTOMATIZACIÓN ---
-    // Cuando la csnción termina, dispara el evento del botón "Siguiente"
     audio.addEventListener('ended', () => {
         btnNext.click();
     });
 
     progreso.addEventListener('input', () =>  {
-        if (!isNaN(audio.duration)) { // Solo si la duración es un número válido
+        if (!isNaN(audio.duration)) {
             const tiempoDestino = (progreso.value / 100) * audio.duration;
             audio.currentTime = tiempoDestino;
         }
     });
 
-
-    // --- 6. INICIO ---
-    cargarCancion(indiceActual);
-
     // ---- 7. Inyección Dinámica de PlayList ---
     playlist.forEach((cancion, indice) => {
-        // 1. Creamos el elemanto
         const item = document.createElement('button');
-
-        // 2. Le damos estilo (crear esta clesse en css luego)
         item.classList.add('pista-item');
-        // 3. Escribimos el nombre de la canción
+        item.setAttribute('data-indice', indice);
         item.textContent = `${cancion.titulo}`;
-        //---Nuevo: Escuchador de clics ----
+        
         item.addEventListener('click', () => {
-            indiceActual = indice; // Sincronizamos el  indice 
+            indiceActual = indice; 
             cargarCancion(indiceActual);
             audio.play();
             playIcon.src = CONFIG.ROOT_ICONS + 'pause.svg';
         });
-        // 4. Lo inyectamos en el Dom 
-        contenedorLista.appendChild(item);
         
+        contenedorLista.appendChild(item); // Solo una vez
     });
 
-
+    // --- 6. INICIO (Al final para que el DOM esté listo) ---
+    cargarCancion(indiceActual);
 });

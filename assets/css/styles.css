@@ -92,6 +92,37 @@ main {
   -ms-transform: translateX(-5px);
   -o-transform: translateX(-5px);
 }
+/* El contenedor de la lista */
+#lista-nombre {
+    max-height: 240px; /* Suficiente para mostrar unos 4 botones aprox */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-right: 5px;
+}
+
+/* El estilo de la canción sonando */
+.pista-activa {
+    background-color: #4CAF50 !important;
+    /*Otuvariabledecolorprincipal*/color: white;
+  }
+  .pista-activa:hover {
+    transform: scale(1.02) translateX(-5px);
+    -webkit-transform: scale(1.02) translateX(-5px);
+    -moz-transform: scale(1.02) translateX(-5px);
+    -ms-transform: scale(1.02) translateX(-5px);
+    -o-transform: scale(1.02) translateX(-5px);
+}
+    
+/* Opcional: Estilizar la barra de scroll para que se vea moderna en Linux */
+#lista-nombre::-webkit-scrollbar {
+    width: 6px;
+}
+#lista-nombre::-webkit-scrollbar-thumb {
+    background: var(--color-primario); /* Usa tus variables */
+    border-radius: 10px;
+}
 .video-central {
   width: 100%;
   max-width: 500px;
