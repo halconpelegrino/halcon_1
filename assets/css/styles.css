@@ -114,6 +114,43 @@ main {
     -ms-transform: scale(1.02) translateX(-5px);
     -o-transform: scale(1.02) translateX(-5px);
 }
+.controles {
+  display: flex;
+  flex-direction: column; /* Cambiamos a columna para que respiren */
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+  width: 100%;
+}
+
+/* Contenedor solo para los 3 botones de arriba */
+.botones-principales {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.volumen-mini {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.1); /* Un poco más visible */
+  padding: 8px 15px;
+  border-radius: 20px;
+  width: fit-content; /* Para que no ocupe todo el ancho si no es necesario */
+}
+
+.volumen-mini img {
+  width: 18px;
+  filter: invert(1); /* Para que resalte en fondos oscuros */
+}
+
+#volumen-control {
+  width: 80px; /* Tamaño pequeño para que no rompa el diseño */
+  accent-color: var(--color-acento);
+  cursor: pointer;
+}
     
 /* Opcional: Estilizar la barra de scroll para que se vea moderna en Linux */
 #lista-nombre::-webkit-scrollbar {

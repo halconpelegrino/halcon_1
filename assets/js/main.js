@@ -10,7 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const pistaNombre = document.getElementById('pista-nombre');
     const progreso = document.getElementById('progreso');
     const contenedorLista = document.getElementById('lista-nombre');
-   
+    const volumenControl = document.getElementById('volumen-control');
+    const volumenIcono = document.getElementById('volumen-icono');
+
+
     let indiceActual = 0;
 
     // --- 2. VERIFICACIÓN DE CONFIGURACIÓN ---
@@ -69,6 +72,19 @@ document.addEventListener('DOMContentLoaded', () => {
         cargarCancion(indiceActual);
         audio.play();
         playIcon.src = CONFIG.ROOT_ICONS + 'pause.svg';
+    });
+    volumenControl.addEventListener('input', (e) => {
+        const nivel = e.target.value;
+        audio.volume = nivel;
+
+        // Lógica corregida: sin espacios extras y con nombres de archivo exactos
+        if(nivel == 0) {
+            volumenIcono.src = CONFIG.ROOT_ICONS + 'volume-mute.svg';
+        } else if (nivel < 0.5) {
+            volumenIcono.src = CONFIG.ROOT_ICONS + 'volume-off.svg';
+        } else {
+            volumenIcono.src = CONFIG.ROOT_ICONS + 'volume-up-fill.svg';
+        }
     });
 
     // --- 5. BARRA DE PROGRESO ---
